@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt build && nuxt start",
-    "deploy": "push-dir --dir=dist --branch=master --cleanup",
+    "generate": "nuxt generate",
     "precommit": "npm run lint",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
   },
@@ -28,7 +28,6 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.8.0",
-    "eslint-plugin-standard": "^3.1.0",
-    "push-dir": "^0.4.1"
+    "eslint-plugin-standard": "^3.1.0"
   }
 }
