@@ -1,48 +1,57 @@
 <template>
-  <section class="container">
-    <img src="~assets/img/logo.png" alt="Nuxt.js Logo" class="logo" />
-    <h1 class="title">
-      USERS
-    </h1>
-    <ul class="users">
-      <li v-for="(user, index) in users" :key="index" class="user">
-        <nuxt-link :to="{ name: 'id', params: { id: index }}">
-          {{ user.name }}
-        </nuxt-link>
+  <article id="food__category">
+    <h2 class="a11y-hidden">음식 카테고리</h2>
+    <ul class="category__list">
+      <li class="category" v-for="category in foodCategory" :key="category">
+        <nuxt-link
+          class="category-link"
+          :to="`food/${category}`"
+          v-html="getCategory(category)"
+        />
       </li>
     </ul>
-  </section>
+  </article>
 </template>
 
 <script>
-import axios from '~/plugins/axios'
+import axios from "~/plugins/axios";
 
 export default {
-  async asyncData () {
-    let { data } = await axios.get('/api/users')
-    return { users: data }
+  name: 'food-category-selecter',
+  async asyncData() {
+    let { data } = await axios.get("/api/food/category");
+    return { foodCategory: data };
   },
-  head () {
-    return {
-      title: 'Users'
+  methods: {
+    getCategory(category) {
+      switch (category) {
+        case "korea":
+          return "한식";
+        case "asia":
+          return "아시안 &<br> 중식";
+        case "fast":
+          return "분식 &<br> 패스트푸드";
+        case "western":
+          return "양식";
+      }
     }
   }
-}
+};
 </script>
 
 <style scoped>
-.title
-{
-  margin: 30px 0;
+.category__list {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 120px);
+  margin-top: 50px;
 }
-.users
-{
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.category {
+  border: 1px solid #bfbfbf;
+  background-color: #f2f2f2;
+  border-radius: 20px;
 }
-.user
-{
-  margin: 10px 0;
+.category-link {
+  padding: 50px 0px;
 }
 </style>
