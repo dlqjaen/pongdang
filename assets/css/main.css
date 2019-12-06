@@ -27,3 +27,32 @@ ul, ol, li, dl, dt, dd {
   clip: rect(0,0,0,0);
   display: block;
 }
+
+@media screen and (max-width: 425px) {
+  .layout-leave-active,
+  .layout-enter-active {
+    transition: transform 1s, opacity 1s;
+  }
+  .layout-enter {
+    transform: translateX(100%);
+    opacity: 0
+  }
+  .layout-leave-to {
+    transform: translateX(-100%);
+    opacity: 0
+  }
+}
+@media screen and (min-width: 426px) {
+  .layout-leave-active,
+  .layout-enter-active {
+    transition: transform 1s, opacity 1s;
+  }
+  .layout-enter {
+    transform: translateX(200px);
+    opacity: 0
+  }
+  .layout-leave-to {
+    transform: translateX(-200px);
+    opacity: 0
+  }
+}

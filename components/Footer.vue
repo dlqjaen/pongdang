@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 #footer {
-  margin-top: 100px;
+  margin-top: 80px;
 }
 .linked-user {
   display: inline-block;
