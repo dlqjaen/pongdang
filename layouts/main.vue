@@ -1,13 +1,11 @@
 <template>
   <section id="default__layout">
-    <Header />
     <nuxt />
     <Footer />
   </section>
 </template>
 
 <script>
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 export default {
@@ -16,7 +14,6 @@ export default {
     mode: 'out-in'
   },
   components: {
-    Header,
     Footer
   }
 }
